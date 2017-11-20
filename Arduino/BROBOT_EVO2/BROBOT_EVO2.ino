@@ -48,9 +48,9 @@
 
 // Uncomment this lines to connect to an external Wifi router (join an existing Wifi network)
 //#define EXTERNAL_WIFI
-//#define WIFI_SSID "YOUR_WIFI"
-//#define WIFI_PASSWORD "YOUR_PASSWORD"
-//#define WIFI_IP "192.168.1.101"  // Force ROBOT IP
+//#define WIFI_SSID "VM7936419"
+//#define WIFI_PASSWORD "w8sFgSqghgtr"
+//#define WIFI_IP "192.168.0.50"  // Force ROBOT IP
 //#define TELEMETRY "192.168.1.38" // Tlemetry server port 2223
 
 #define TELEMETRY "192.168.4.2" // Default telemetry server (first client) port 2223
@@ -327,6 +327,16 @@ void setup()
   BROBOT_moveServo1(SERVO_AUX_NEUTRO);
   BROBOT_moveServo2(SERVO2_NEUTRO);
 
+  // getUp on init
+    delay(200);
+    setMotorSpeedM1(8);
+    setMotorSpeedM2(8);
+    BROBOT_moveServo1(SERVO_AUX_NEUTRO + 250);
+    BROBOT_moveServo2(SERVO2_NEUTRO + 250);
+    delay(800);
+    BROBOT_moveServo1(SERVO_AUX_NEUTRO);
+    BROBOT_moveServo2(SERVO2_NEUTRO);
+  
  #if TELEMETRY_BATTERY==1
   BatteryValue = BROBOT_readBattery(true);
   Serial.print("BATT:");
